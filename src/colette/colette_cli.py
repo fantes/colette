@@ -86,7 +86,7 @@ def index(
             while (
                 "finished" not in response_index.json()["message"] and "error" not in response_index.json()["message"]
             ):
-                time.sleep(0.5)
+                time.sleep(5.0)
                 response_index = client.get(f"/v1/index/{app_name}/status")
                 if response_index.status_code != 200:
                     typer.echo(f"Indexing failed: {response.text}", err=True)
